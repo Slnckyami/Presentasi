@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buta Warna - Presentasi Biologi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #764ba2;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: #667eea;
+            margin: 20px 0 15px 0;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .color-box {
+            height: 120px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            cursor: pointer;
+            flex-direction: column;
+        }
+
+        .color-box:hover {
+            transform: scale(1.05);
+        }
+
+        .test-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .ishihara-plate {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .eye-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .cone-cell {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .comparison-table tr:hover {
+            background: #e9ecef;
+        }
+
+        .interactive-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .interactive-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-top: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .navigation {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 15px;
+            height: 15px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-dot:hover, .nav-dot.active {
+            background: #667eea;
+            transform: scale(1.3);
+        }
+
+        .diagram-container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .genetics-box {
+            display: inline-block;
+            padding: 20px;
+            margin: 10px;
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            background: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            h2 { font-size: 28px; }
+            .navigation { display: none; }
+            .stat-number { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 Buta Warna</h1>
+            <p class="subtitle">Memahami Defisiensi Penglihatan Warna</p>
+        </header>
+
+        <!-- Slide 1: Pendahuluan -->
+        <div class="slide" id="slide1">
+            <h2>Apa Itu Buta Warna?</h2>
+            <p>Buta warna, atau yang dikenal dengan istilah <strong>defisiensi penglihatan warna (Color Vision Deficiency/CVD)</strong>, adalah kondisi di mana kemampuan seseorang untuk membedakan warna tertentu berkurang atau tidak ada sama sekali. Ini bukan berarti "buta" terhadap semua warna, melainkan kesulitan membedakan nuansa warna tertentu.</p>
+            
+            <div class="highlight-box">
+                <p><strong>Tahukah Anda?</strong> Buta warna mempengaruhi sekitar 1 dari 12 pria (8%) dan 1 dari 200 wanita (0,5%) di seluruh dunia!</p>
+            </div>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-number">8%</div>
+                    <div class="stat-label">Pria yang terkena</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0,5%</div>
+                    <div class="stat-label">Wanita yang terkena</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">300 Juta+</div>
+                    <div class="stat-label">Orang di seluruh dunia</div>
+                </div>
+            </div>
+
+            <h3>Fakta Penting</h3>
+            <ul>
+                <li>Buta warna adalah kondisi genetik yang diturunkan</li>
+                <li>Lebih banyak dialami oleh pria daripada wanita</li>
+                <li>Kebanyakan orang buta warna dapat menjalani kehidupan normal</li>
+                <li>Tidak ada obat untuk buta warna, tetapi ada bantuan teknologi</li>
+            </ul>
+        </div>
+
+        <!-- Slide 2: Biologi Penglihatan Warna -->
+        <div class="slide" id="slide2">
+            <h2>Biologi di Balik Penglihatan Warna</h2>
+            
+            <h3>Bagaimana Kita Melihat Warna</h3>
+            <p>Penglihatan warna terjadi di <strong>retina</strong> mata, khususnya pada sel khusus yang disebut <strong>sel kerucut (cone cells)</strong>. Ada tiga jenis sel kerucut, masing-masing sensitif terhadap panjang gelombang cahaya yang berbeda:</p>
+
+            <div class="eye-diagram">
+                <div class="cone-cell" style="background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);">
+                    Kerucut-L<br>
+                    <small>Merah (560nm)</small>
+                </div>
+                <div class="cone-cell" style="background: linear-gradient(135deg, #44ff44 0%, #00cc00 100%);">
+                    Kerucut-M<br>
+                    <small>Hijau (530nm)</small>
+                </div>
+                <div class="cone-cell" style="background: linear-gradient(135deg, #4444ff 0%, #0000cc 100%);">
+                    Kerucut-S<br>
+                    <small>Biru (420nm)</small>
+                </div>
+            </div>
+
+            <h3>Tiga Jenis Sel Kerucut</h3>
+            <ul>
+                <li><strong>Kerucut-L (Long/Panjang)</strong> - Sensitif terhadap cahaya merah (~560 nm)</li>
+                <li><strong>Kerucut-M (Medium/Sedang)</strong> - Sensitif terhadap cahaya hijau (~530 nm)</li>
+                <li><strong>Kerucut-S (Short/Pendek)</strong> - Sensitif terhadap cahaya biru (~420 nm)</li>
+            </ul>
+
+            <div class="info-box">
+                <p><strong>Proses Penglihatan:</strong> Otak memproses sinyal dari ketiga jenis sel kerucut ini untuk menciptakan spektrum penuh warna yang kita lihat. Ketika satu atau lebih jenis kerucut rusak atau hilang, buta warna terjadi.</p>
+            </div>
+
+            <h3>Lokasi Sel Kerucut</h3>
+            <p>Sel kerucut terletak di <strong>fovea centralis</strong>, bagian tengah retina yang bertanggung jawab untuk penglihatan tajam dan detail. Rata-rata, mata manusia memiliki sekitar 6-7 juta sel kerucut.</p>
+        </div>
+
+        <!-- Slide 3: Jenis-Jenis Buta Warna -->
+        <div class="slide" id="slide3">
+            <h2>Jenis-Jenis Buta Warna</h2>
+
+            <h3>Klasifikasi Berdasarkan Sel Kerucut yang Terganggu</h3>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Jenis</th>
+                        <th>Sel Kerucut Terganggu</th>
+                        <th>Deskripsi</th>
+                        <th>Frekuensi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Protanopia</strong></td>
+                        <td>Kerucut-L (Merah)</td>
+                        <td>Tidak dapat melihat cahaya merah</td>
+                        <td>~1% pria</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Deuteranopia</strong></td>
+                        <td>Kerucut-M (Hijau)</td>
+                        <td>Tidak dapat melihat cahaya hijau</td>
+                        <td>~1% pria</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tritanopia</strong></td>
+                        <td>Kerucut-S (Biru)</td>
+                        <td>Tidak dapat melihat cahaya biru</td>
+                        <td>Sangat langka</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Protanomali</strong></td>
+                        <td>Kerucut-L (Merah)</td>
+                        <td>Sensitivitas merah berkurang</td>
+                        <td>~1% pria</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Deuteranomali</strong></td>
+                        <td>Kerucut-M (Hijau)</td>
+                        <td>Sensitivitas hijau berkurang</td>
+                        <td>~5% pria</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Monokromasi</strong></td>
+                        <td>Semua kerucut</td>
+                        <td>Buta warna total</td>
+                        <td>Sangat langka</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <p><strong>Catatan:</strong> Buta warna merah-hijau (Protanopia, Deuteranopia, Protanomali, dan Deuteranomali) adalah bentuk yang paling umum, mempengaruhi sekitar 99% dari semua individu buta warna.</p>
+            </div>
+
+            <h3>Kategori Utama</h3>
+            <ul>
+                <li><strong>Buta Warna Merah-Hijau</strong> - Paling umum, sulit membedakan merah dan hijau</li>
+                <li><strong>Buta Warna Biru-Kuning</strong> - Langka, sulit membedakan biru dan kuning</li>
+                <li><strong>Buta Warna Total</strong> - Sangat langka, hanya melihat dalam skala abu-abu</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: Dasar Genetika -->
+        <div class="slide" id="slide4">
+            <h2>Dasar Genetika Buta Warna</h2>
+            
+            <h3>Pewarisan Terkait Kromosom X</h3>
+            <p>Buta warna merah-hijau adalah <strong>sifat resesif terkait kromosom X</strong>, yang menjelaskan mengapa kondisi ini jauh lebih umum pada pria daripada wanita:</p>
+
+            <div class="diagram-container">
+                <h4>Kromosom dan Buta Warna</h4>
+                <div class="genetics-box" style="border-color: #3498db;">
+                    Pria (XY)<br>
+                    <small>1 kromosom X</small>
+                </div>
+                <div class="genetics-box" style="border-color: #e74c3c;">
+                    Wanita (XX)<br>
+                    <small>2 kromosom X</small>
+                </div>
+            </div>
+
+            <h3>Mengapa Pria Lebih Rentan?</h3>
+            <ul>
+                <li><strong>Pria (XY)</strong> - Hanya memerlukan satu gen cacat pada kromosom X tunggal mereka untuk menjadi buta warna</li>
+                <li><strong>Wanita (XX)</strong> - Memerlukan gen cacat pada kedua kromosom X untuk menjadi buta warna (jauh lebih jarang)</li>
+                <li>Wanita dengan satu kromosom X cacat adalah <strong>pembawa (carrier)</strong> dan biasanya memiliki penglihatan warna normal</li>
+            </ul>
+
+            <h3>Lokasi Gen</h3>
+            <p>Gen yang bertanggung jawab untuk pigmen kerucut merah dan hijau terletak pada <strong>kromosom X</strong> (wilayah Xq28), sedangkan gen pigmen kerucut biru terletak pada <strong>kromosom 7</strong>.</p>
+
+            <div class="test-section">
+                <h3>Probabilitas Pewarisan</h3>
+                <h4>Jika ibu adalah pembawa dan ayah memiliki penglihatan normal:</h4>
+                <ul>
+                    <li>50% kemungkinan anak laki-laki akan buta warna</li>
+                    <li>50% kemungkinan anak perempuan akan menjadi pembawa</li>
+                </ul>
+                <h4>Jika ayah buta warna dan ibu memiliki penglihatan normal:</h4>
+                <ul>
+                    <li>Semua anak laki-laki akan memiliki penglihatan normal</li>
+                    <li>Semua anak perempuan akan menjadi pembawa</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Buta Warna Didapat:</strong> Selain genetik, buta warna juga bisa didapat akibat penyakit (diabetes, glaukoma), cedera mata, efek obat-obatan tertentu, atau penuaan.</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Perbandingan Warna -->
+        <div class="slide" id="slide5">
+            <h2>Bagaimana Warna Terlihat</h2>
+            
+            <h3>Penglihatan Normal vs Buta Warna</h3>
+            <p>Berikut adalah perbandingan sederhana bagaimana warna yang berbeda mungkin terlihat:</p>
+
+            <div class="color-grid">
+                <div class="color-box" style="background: #ff0000;">
+                    Merah<br>
+                    <small>(Normal)</small>
+                </div>
+                <div class="color-box" style="background: #8b4513;">
+                    Merah<br>
+                    <small>(Protanopia)</small>
+                </div>
+                <div class="color-box" style="background: #00ff00;">
+                    Hijau<br>
+                    <small>(Normal)</small>
+                </div>
+                <div class="color-box" style="background: #d4d400;">
+                    Hijau<br>
+                    <small>(Deuteranopia)</small>
+                </div>
+                <div class="color-box" style="background: #ff6600;">
+                    Oranye<br>
+                    <small>(Normal)</small>
+                </div>
+                <div class="color-box" style="background: #cccc00;">
+                    Oranye<br>
+                    <small>(Protanopia)</small>
+                </div>
+                <div class="color-box" style="background: #800080;">
+                    Ungu<br>
+                    <small>(Normal)</small>
+                </div>
+                <div class="color-box" style="background: #4040ff;">
+                    Ungu<br>
+                    <small>(Tritanopia)</small>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Penting:</strong> Persepsi warna setiap individu buta warna dapat berbeda-beda. Simulasi di atas hanya memberikan gambaran umum.</p>
+            </div>
+
+        <!-- Slide 7: Dampak pada Kehidupan Sehari-hari -->
+        <div class="slide" id="slide7">
+            <h2>Dampak pada Kehidupan Sehari-hari</h2>
+            
+            <h3>Tantangan yang Dihadapi</h3>
+            <ul>
+                <li><strong>Lampu lalu lintas</strong> - Kesulitan membedakan lampu merah/hijau (posisi membantu)</li>
+                <li><strong>Informasi berkode warna</strong> - Peta, grafik, diagram yang menggunakan diferensiasi warna</li>
+                <li><strong>Persiapan makanan</strong> - Menentukan kematangan buah, memasak daging</li>
+                <li><strong>Pemilihan pakaian</strong> - Mencocokkan warna dengan tepat</li>
+                <li><strong>Keterbatasan karir</strong> - Pilot, listrik, beberapa peran militer memerlukan penglihatan warna normal</li>
+                <li><strong>Pendidikan</strong> - Kesulitan dengan materi belajar yang menggunakan kode warna</li>
+            </ul>
+
+            <h3>Pekerjaan yang Memerlukan Penglihatan Warna Normal</h3>
+            <ul>
+                <li>Pilot pesawat</li>
+                <li>Teknisi listrik</li>
+                <li>Desainer grafis/fashion</li>
+                <li>Ahli patologi</li>
+                <li>Beberapa posisi militer</li>
+            </ul>
+
+            <h3>Adaptasi & Solusi</h3>
+            <ul>
+                <li><strong>Teknologi</strong> - Aplikasi koreksi buta warna, kacamata khusus (EnChroma, Pilestone)</li>
+                <li><strong>Pertimbangan desain</strong> - Menggunakan pola, bentuk, atau label teks selain warna</li>
+                <li><strong>Strategi kompensasi</strong> - Menghafal posisi, menggunakan petunjuk kecerahan</li>
+                <li><strong>Fitur aksesibilitas</strong> - Mode buta warna di perangkat lunak dan game</li>
+                <li><strong>Bantuan orang lain</strong> - Meminta bantuan untuk mencocokkan warna</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>Tips untuk Orang Tua:</strong> Jika anak Anda buta warna, beritahu guru mereka agar materi pembelajaran disesuaikan. Banyak sekolah sekarang lebih sadar akan kebutuhan siswa buta warna.</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Pengobatan & Penelitian -->
+        <div class="slide" id="slide8">
+            <h2>Pengobatan & Penelitian Masa Depan</h2>
+            
+            <h3>Opsi Saat Ini</h3>
+            <ul>
+                <li><strong>Lensa filter warna</strong> (EnChroma, Pilestone) - Dapat meningkatkan diskriminasi warna untuk beberapa individu</li>
+                <li><strong>Lensa kontak</strong> - Kontak berwarna yang menyaring panjang gelombang tertentu</li>
+                <li><strong>Bantuan digital</strong> - Aplikasi smartphone yang mengidentifikasi dan melabeli warna</li>
+                <li><strong>Perangkat lunak</strong> - Filter dan mode aksesibilitas pada komputer dan perangkat</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>Penting:</strong> Solusi ini tidak menyembuhkan buta warna tetapi dapat membantu meningkatkan persepsi warna dalam beberapa kasus. Hasilnya bervariasi menurut individu dan jenis buta warna.</p>
+            </div>
+              </div>
+              
+              
+        </script>
+    </body>
+</html>
